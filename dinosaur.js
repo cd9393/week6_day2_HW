@@ -1,0 +1,8 @@
+// write out all your tests first. each bullet point is a test.
+const Dinosaur = function(species, diet, visitors){
+  this.species = species;
+  this.diet = diet;
+  this.visitors = visitors;
+};
+
+module.exports = Dinosaur
