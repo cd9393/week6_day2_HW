@@ -11,6 +11,7 @@ describe('Park',function(){
     dinosaur1 = new Dinosaur("Velociraptor","Carnivore",60);
     dinosaur2 = new Dinosaur("T-Rex","Carnivore",150);
     dinosaur3 = new Dinosaur("Triceratops","Herbivore",50);
+    dinosaur4 = new Dinosaur("T-Rex","Carnivore",150);
     park = new Park ("Jurassic World",100,[dinosaur1,dinosaur2])
   });
 
@@ -65,4 +66,12 @@ describe('Park',function(){
     actual = park.yearlyRevenue();
     assert.strictEqual(actual,7665000)
   });
+
+  it("Should be able to remove all dinosaur by species",function(){
+
+    park.addDinosaur(dinosaur4)
+    park.removeBySpecies("T-rex");
+
+    assert.strictEqual(park.dinosaurs.length,1)
+  })
 })
