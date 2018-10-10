@@ -70,8 +70,19 @@ describe('Park',function(){
   it("Should be able to remove all dinosaur by species",function(){
 
     park.addDinosaur(dinosaur4)
-    park.removeBySpecies("T-rex");
+    park.removeBySpecies("T-Rex");
 
     assert.strictEqual(park.dinosaurs.length,1)
+  })
+
+  it("should be able to collate information about the dinosaurs and their diet.",function(){
+
+    park.addDinosaur(dinosaur3)
+    actual = park.getDietaryInfo();
+    expected = {
+      'Carnivore':2,
+      'Herbivore':1
+    };
+    assert.deepStrictEqual(actual,expected)
   })
 })

@@ -49,13 +49,26 @@ Park.prototype.yearlyRevenue = function () {
 };
 
 Park.prototype.removeBySpecies = function (searchSpecies) {
-  for(let dinosaur of this.dinosaurs){
-    let index;
-    
-    if(dinosaur.species === searchSpecies){index = this.dinosaurs.indexOf(dinosaur);}
-      this.dinosaurs.splice(index,1)
-    }
-  };
+  for (let i = this.dinosaurs.length -1; i >= 0; i--){
+    let currentDino = this.dinosaurs[i];
 
+    if(currentDino.species ===searchSpecies){
+      this.dinosaurs.splice(i,1);
+    }
+  }
+}; // if you are removing items during  for loop start the for loop from the end. ALWAYS LOOP BACKWARDS!!
+
+Park.prototype.getDietaryInfo = function () {
+  let diets = {};
+
+  for(let currentDino of this.dinosaurs){
+    if(currentDino.diet in diets){
+      diets[currentDino.diet]++;
+    } else{
+      diets[currentDino.diet] = 1;
+    }
+  }
+  return diets
+};
 
 module.exports = Park
