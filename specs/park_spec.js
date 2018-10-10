@@ -41,13 +41,28 @@ describe('Park',function(){
     assert.strictEqual(actual,1)
   });
 
-  xit("should be able to find the dinosaur that attracts the most visitors",function(){
+  it("should be able to find the dinosaur that attracts the most visitors",function(){
     actual = park.mostPopularDinosaur();
     assert.strictEqual(actual, dinosaur2)
   });
 
   it("Should be able to find all dinosaurs of a particular species",function(){
     actual = park.findBySpecies("T-Rex");
-    assert.deepStrictEqual(actual,[dinosaur1])
+    assert.deepStrictEqual(actual,[dinosaur2])
+  });
+
+  it("Should calculate the total number of visitors per day",function(){
+    actual = park.dailyVisitors();
+    assert.strictEqual(actual,210)
+  });
+
+  it("Should calculate the yearly visitors",function(){
+    actual = park.yearlyVisitors();
+    assert.strictEqual(actual, 76650)
+  });
+
+  it("should calculate the total annual revenue from ticket sales",function(){
+    actual = park.yearlyRevenue();
+    assert.strictEqual(actual,7665000)
   });
 })
